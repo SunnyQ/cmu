@@ -1,0 +1,136 @@
+{% extends "base.html" %} {% load i18n %} {% block content %}
+<div class="page-header">
+	<h1>
+		Nearby Events <small>Manage</small>
+	</h1>
+</div>
+
+
+<div id="id_my_event" class="tab-pane active">
+	<div class="tabbable tabs-left">
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#lA">Future
+					Events</a></li>
+			<li><a data-toggle="tab" href="#lB">Happening Events</a></li>
+			<li><a data-toggle="tab" href="#lC">Expired Events</a></li>
+		</ul>
+		<div class="tab-content">
+			<div id="lA" class="tab-pane active">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Description</th>
+							<th>Location</th>
+							<th>Start</th>
+							<th>End</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for activity in activities_future %} 
+							{% if activity.status == 0 %}
+								<tr class="success" href="../../view/{{ activity.event.eid }}">
+							{% elif activity.status == 2 %}
+								<tr class="warning" href="../../view/{{ activity.event.eid }}">
+							{% else %}
+								<tr class="info" href="../../view/{{ activity.event.eid }}">
+							{% endif %}
+							<td>{{ activity.event.name }}</td>
+							<td>{{ activity.event.desc }}</td>
+							<td>{{ activity.event.location }}</td>
+							<td>{{ activity.event.start_time }}</td>
+							<td>{{ activity.event.end_time }}</td> 
+							{% if activity.status == 0 %}
+								<td>Join</td> 
+							{% elif activity.status == 2 %}
+								<td>Check-in</td> 
+							{% else %}
+								<td>Create</td> 
+							{% endif %}
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<div id="lB" class="tab-pane">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Description</th>
+							<th>Location</th>
+							<th>Start</th>
+							<th>End</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for activity in activities_happening %} 
+							{% if activity.status == 0 %}
+								<tr class="success" href="../../view/{{ activity.event.eid }}">
+							{% elif activity.status == 2 %}
+								<tr class="warning" href="../../view/{{ activity.event.eid }}">
+							{% else %}
+								<tr class="info" href="../../view/{{ activity.event.eid }}">
+							{% endif %}
+							<td>{{ activity.event.name }}</td>
+							<td>{{ activity.event.desc }}</td>
+							<td>{{ activity.event.location }}</td>
+							<td>{{ activity.event.start_time }}</td>
+							<td>{{ activity.event.end_time }}</td> 
+							{% if activity.status == 0 %}
+								<td>Join</td> 
+							{% elif activity.status == 2 %}
+								<td>Check-in</td> 
+							{% else %}
+								<td>Create</td> 
+							{% endif %}
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<div id="lC" class="tab-pane">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Description</th>
+							<th>Location</th>
+							<th>Start</th>
+							<th>End</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for activity in activities_expired %} 
+							{% if activity.status == 0 %}
+								<tr class="success" href="../../view/{{ activity.event.eid }}">
+							{% elif activity.status == 2 %}
+								<tr class="warning" href="../../view/{{ activity.event.eid }}">
+							{% else %}
+								<tr class="info" href="../../view/{{ activity.event.eid }}">
+							{% endif %}
+							<td>{{ activity.event.name }}</td>
+							<td>{{ activity.event.desc }}</td>
+							<td>{{ activity.event.location }}</td>
+							<td>{{ activity.event.start_time }}</td>
+							<td>{{ activity.event.end_time }}</td> 
+							{% if activity.status == 0 %}
+								<td>Join</td> 
+							{% elif activity.status == 2 %}
+								<td>Check-in</td> 
+							{% else %}
+								<td>Create</td> 
+							{% endif %}
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

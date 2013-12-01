@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:background="@drawable/main_bg"
+    android:orientation="vertical"
+    android:weightSum="1.0"
+    tools:context=".MainActivity" >
+
+    <ImageView
+        android:id="@+id/twitterImg"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight=".60"
+        android:contentDescription="@string/twitter"
+        android:src="@drawable/twitter_head" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight=".40"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/photo_btn"
+            android:layout_width="180dip"
+            android:layout_height="40dip"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dip"
+            android:background="#88ffffff"
+            android:text="@string/photo"
+            android:textSize="25sp"
+            android:typeface="sans" />
+
+        <Button
+            android:id="@+id/compose_btn"
+            android:layout_width="180dip"
+            android:layout_height="40dip"
+            android:layout_gravity="center_horizontal"
+            android:background="#88ffffff"
+            android:text="@string/compose"
+            android:textSize="25sp"
+            android:typeface="sans" />
+    </LinearLayout>
+
+</LinearLayout>

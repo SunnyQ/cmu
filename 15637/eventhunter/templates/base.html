@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Popular Events Radar</title>
+<meta name="description" content="Fast deliver the popular events">
+<meta name="author" content="Yang Sun (yksun), Yuan Gu (yuangu)">
+
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<link href="/static/css/style.css" rel="stylesheet">
+<style type="text/css">
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+</style>
+<link rel="shortcut icon" href="/static/ico/favicon.png">
+</head>
+
+<body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="{% url 'index' %}">Popular Events Radar</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li><a id="id_navhome" href="{% url 'index' %}">Home</a></li>
+						{% if user.is_authenticated %}
+							<li><a id="id_navevent" href="{% url 'create-event' %}">Create Event</a></li>
+						{% endif %}
+						<li><a id="id_navsearch" href="{% url 'list-nearby-event' %}">Search</a></li>
+						<li><a id="id_navabout" href="{% url 'about' %}">About</a></li>
+					</ul>
+					{% if user.is_authenticated %}
+						<div class="pull-right">
+							<a class="brand" href="{% url 'profiles_edit_profile' %}">Hi, {{ user.username }}!</a>
+							<div class="btn-group">
+								<a href="{% url 'logout' %}" class="btn" tabindex="-1">Sign out</a>
+								<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+									<span class="caret"></span>
+                				</button>
+                				<ul class="dropdown-menu">
+                					<li><a href="{% url 'list-my-event' %}">Manage Events</a></li>
+                					<li><a href="{% url 'password_change' %}">Change Password</a></li>
+                				</ul>
+							</div>
+							
+						</div>
+					{% else %}
+						<form method="post" action="{% url 'login' %}" class="navbar-form pull-right">{% csrf_token %}
+							<input class="span2" id="id_username" name="username" type="text" placeholder="Username">
+							<input class="span2" id="id_password" name="password" type="password" placeholder="Password">
+							<div class="btn-group">
+								<button type="submit" class="btn" tabindex="-1">Sign in</button>
+								<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+									<span class="caret"></span>
+                				</button>
+                				<ul class="dropdown-menu">
+                					<li><a href="{% url 'password_reset' %}">Forgot the password?</a></li>
+                				</ul>
+							</div>
+							<a href="{% url 'register' %}" class="btn">Sign up</a>
+						</form>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+	
+	    {% block content %}
+
+		{% endblock %}
+
+		<hr>
+
+		<footer>
+			<p>&copy; Yang Sun &amp Yuan Gu, Carnegie Mellon University, 2013</p>
+		</footer>
+
+	</div>
+
+	<script src="/static/js/jquery-1.7.1.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="/static/js/jquery.validate.min.js"></script>
+	<script src="/static/js/infoWindowScript.js"></script>
+	<script src="/static/js/mapScript.js"></script>
+	<script src="/static/js/formScript.js"></script>
+	<script src="/static/js/script.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCwjbVfTknC_Oi1tNDY7uVYt1jFvfBLoF0&sensor=true"></script>
+</body>
+</html>

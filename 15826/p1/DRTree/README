@@ -1,0 +1,52 @@
+README:
+
+*****************************************************************
+*******CONTENTS:*************************************************
+*****************************************************************
+This is the directory for Deferred-split R-tree (DR) package. There are several
+subdirectories:
+
+	doc	:	DR documentations;
+	bin	:	DR executables;
+	lib	:	DR libraries;
+	binsrc	:	source files for DR executables;
+	libsrc	:	source files for DR libraries;
+	include	:	DR library header files;
+
+
+*****************************************************************
+********QUICK INTRO:*********************************************
+*****************************************************************
+Say
+	make
+or
+	make demo
+to see a demo. Ignore the error message 
+   *** Error code 1 (ignored)
+
+In more detail:
+There is a Makefile in this directory. Here are your options:
+
+	make demo	/* makes everything, and starts a demo */
+	make all	/* to make libraries and executables */
+	make library	/* to make libraries only */
+	make binary	/* to make executables only */
+	make clean	/* clean up */
+
+Note: You have to make a library first before you make any binary.
+
+*****************************************************************
+********USAGE:***************************************************
+*****************************************************************
+For some help:
+	bin/DRmain -h
+
+To run, in general
+	bin/DRmain [ -help ] [ -dim n ] [ -float ] [ filename ]
+where
+	-dim	 specifies the number of dimensions (default n=2)
+	-float	 specifies that the coordinates will be float (default: integer)
+	filename is the name of the UNIX file that will contain the Rtree
+		 (default: "default.idx")
+
+Enjoy!

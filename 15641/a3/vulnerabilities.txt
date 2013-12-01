@@ -1,0 +1,1 @@
+1. We tested our implementation by using at most 3 peers, we are not sure whether more peers will crash our program, but should be good we believe.

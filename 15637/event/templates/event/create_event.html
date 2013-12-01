@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% load i18n %} {% block content %}
+<div class="page-header">
+	<h1>
+		Nearby Events <small>Create</small>
+	</h1>
+</div>
+<form action="" method="post" id="event-form" class="form-horizontal">
+	{% csrf_token %} {% if form.errors.items %}
+	<div class="alert alert-error">
+		{% for key, value in form.errors.items %} <a class="close"
+			data-dismiss="alert">x</a> {{ value }} {% endfor %}
+	</div>
+	{% endif %}
+
+	<div class="control-group">
+		<label class="control-label" for="id_name">Event name:</label>
+		<div class="controls">{{ form.name }}</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="id_desc">Description:</label>
+		<div class="controls">{{ form.desc }}</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="id_start_time">Start:</label>
+		<div id="startdatetimepicker" class="input-prepend date controls"
+			style="margin-left: 20px;">
+			<span class="add-on"> <i data-time-icon="icon-time"
+				data-date-icon="icon-calendar"> </i>
+			</span>{{ form.start_time }}
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="id_end_time">End:</label>
+		<div id="enddatetimepicker" class="input-prepend date controls"
+			style="margin-left: 20px;">
+			<span class="add-on"> <i data-time-icon="icon-time"
+				data-date-icon="icon-calendar"> </i>
+			</span> {{ form.end_time }}
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="id_location">Location:</label>
+		<div class="controls">{{ form.location }}</div>
+	</div>
+	<div class="form-actions">
+		<button type="submit" class="btn btn-primary btn-large">Create</button>
+		<button type="reset" class="btn">Reset</button>
+	</div>
+	{{ form.lat }} {{ form.lon }}
+</form>
+{% endblock %}

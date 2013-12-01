@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% load i18n %} {% block content %}
+<!-- <h1>{{ lat }}</h1>
+  <h1>{{ lon }}</h1>-->
+<div class="page-header">
+	<h1>
+		Nearby Events <small>Search</small>
+	</h1>
+</div>
+
+
+<div class="row form-search">
+	<div class="input-append span10">
+		<input type="text" id="id_addressbar" name="addressbar"
+			class="search-query span8" onkeypress="return runScript(event)">
+		<button type="button" class="btn" onclick="return runScript()">Search
+			Nearby</button>
+	</div>
+	<select id="id_radius" name="radius" class="span2">
+		<option value="5000">&lt;&#61; 5 km</option>
+		<option value="10000">&lt;&#61; 10 km</option>
+		<option value="30000">&lt;&#61; 30 km</option>
+		<option value="50000">&lt;&#61; 50 km</option>
+		<option value="100000">&lt;&#61; 100 km</option>
+	</select>
+</div>
+<br />
+<div id="map-canvas"></div>
+<!-- <ul>
+	{% for event in events %}
+	<li>{{ event.name }}</li> {% endfor %}
+</ul>-->
+{% endblock %}

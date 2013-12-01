@@ -1,0 +1,9 @@
+#!/bin/csh -f
+# given a file with (x,y), it calculates the slope
+#   on the lin-lin plot
+
+if ( $#argv > 2 ) then
+    echo "USAGE: $0 [fname with (x,y) values] "
+else
+    cat $1 | awk -f ${0}.awk
+endif

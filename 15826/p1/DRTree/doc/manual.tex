@@ -1,0 +1,114 @@
+\documentstyle[11pt,psfig]{article}
+
+%set dimensions of columns, gap between columns, and space between paragraphs
+\setlength{\textheight}{8.75in}
+% \setlength{\columnsep}{2.0pc}
+\setlength{\textwidth}{6.8in}
+\setlength{\footheight}{0.0in}
+\setlength{\topmargin}{0.25in}
+\setlength{\headheight}{0.0in}
+\setlength{\headsep}{0.0in}
+\setlength{\oddsidemargin}{-.19in}
+\setlength{\parindent}{1pc}
+\renewcommand{\baselinestretch}{1.3}
+
+\begin{document}
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bit}{\begin{itemize}}
+\newcommand{\eit}{\end{itemize}}
+\newcommand{\goal}[1]{ {\noindent {$\Rightarrow$} \em {#1} } }
+\newcommand{\hide}[1]{}
+\newcommand{\comment}[1]{ {\footnotesize {#1} } }
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proof}{Proof}
+\newtheorem{defn}{Definition}
+\newtheorem{algo}{Algorithm}
+\newtheorem{observation}{Observation}
+
+\title{Design and implementation of an R-tree package}
+\author{ Mehmet Bayraktar	\and
+	 Christos Faloutsos	\and
+	 Yik Tan		\and
+	 Xuejun (Jay) Tang	\and
+	 Wen Wang \\
+	 Dept. of Computer Science \\
+	 University of Maryland, College Park
+	 }
+\date{}
+
+
+
+\maketitle
+\begin{abstract}
+We describe the details of an R-tree package $\ldots$
+[****Christos will fill in the rest]
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+R-trees are important Spatial access methods $\ldots$
+[****From Yik's introduction; Christos will touch-up too]
+% \input{yikIntro.tex}
+
+\section{Survey}
+\label{sec:survey}
+[***Description of Guttman's R-tree - Christos will do it ***]
+% \input{christosSurvey.tex}
+
+\section{New split algorithm}
+[*** Mehmet fills in - 1-2 pages at most! ***]
+%\input{mehmetSplit.tex}
+
+\section{Other utilities}
+\subsection{Fractal Dimension}
+[*** Yik fills in - 1 page ***]
+%\input{yikFD.tex}
+\subsection{Spatial Join}
+[*** Wen fills in - 1 page ***]
+%\input{wenSpatialJoin.tex}
+\subsection{Nearest Neighbor}
+[*** Yik fills in - 1-3 pages ***]
+%\input{yikNN.tex}
+\appendix
+\section{Basic data structures}
+
+[*** Jay fills in - half a page ***]
+%\input{jayDS.tex}
+tree
+
+node
+
+rectangle
+
+
+\section{Stubs of routines to call}
+[*** Jay fills in - half a page ***]
+%\input{jayStubs.tex}
+
+insert( **** )
+
+search( **** )
+
+delete( **** )
+
+[*** Yik fils in - half a page ***]
+%\input{yikStubs.tex}
+
+nnsearch( ***** )
+
+fd ( *** )
+
+[*** Wen fills in - a few lines only ***]
+%\input{wenStubs.tex}
+spatialJoin ( *** )
+
+\newpage
+\pagenumbering{roman}
+\tableofcontents
+
+
+\end{document}

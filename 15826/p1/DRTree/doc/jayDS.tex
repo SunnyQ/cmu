@@ -1,0 +1,74 @@
+The DRtree package keeps a DR index in an index file. Each index file is
+composed by:
+\begin{itemize}
+	\item
+	an index header page, which includes the following fields:
+	\begin{enumerate}
+		\item
+		{\bf int dim}: the dimension of the indexed space;
+		\item
+		{\bf coord\_t ctype}: the coordinate type of indexed objects;
+		\item
+		{\bf int rectsize}: the size of a rectangle;
+		\item
+		{\bf int entrysize}: the size of an entry;
+		\item
+		{\bf int nodecard}: the number of entry slots in a node;
+		\item
+		{\bf int bmpsize}: the size of the bitmap used to indicate the
+		usage of entry slots in a node;
+		\item
+		{\bf int rootpage}: the page number of the root node;
+		\item
+		{\bf int rootlevel}: the level of the root node in the index
+		tree with leaf nodes at level 0;
+	\end{enumerate}
+
+	\item
+	and a data page for each index node.\\
+\end{itemize}
+
+A DR index node is composed by:
+\begin{itemize}
+	\item
+	a node header, which includes:
+	\begin{enumerate}
+		\item
+		{\bf int level}: the level of a node in the index tree
+		with leaf nodes at level 0;
+		\item
+		{\bf int count}: the number of used entry slots in a node;
+	\end{enumerate}
+
+	\item
+	and a node buffer, which includes:
+	\begin{enumerate}
+		\item
+		an array of entry slots with the array size to be {\em nodecard};
+		\item
+		an array of bytes(a bitmap) with each bit to indicate
+		the usage of an entry slot, there may be some unused bits
+		in the last byte.\\
+	\end{enumerate}
+\end{itemize}
+
+An entry is composed by:
+\begin{enumerate}
+	\item
+	the ID number of an indexed object if the entry is a leaf entry,
+	the page number of the sub-tree root node otherwise;
+
+	\item
+	the covering rectangle of an indexed object or the sub-tree root node.\\
+\end{enumerate}
+
+A rectangle is composed by:
+\begin{enumerate}
+	\item
+	an array of coordinates of all the lower sides of the rectangle
+	in each dimension;
+	\item
+	an array of coordinates of all the higher sides of the rectangle
+	in each dimension.
+\end{enumerate}
+

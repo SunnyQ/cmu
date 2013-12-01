@@ -1,0 +1,102 @@
+{% extends "base.html" %} {% load i18n %} {% block content %}
+<div class="page-header">
+	<h1>
+		Nearby Event <small>View</small>
+	</h1>
+</div>
+
+<div id="event-view" class="row" style="font-size: 18px;">
+	<div class="row" style="margin-bottom: 5px;">
+		<div class="span2 offset1" style="text-align: right;">
+			<strong>Title: </strong>
+		</div>
+		<div class="span9">{{ event.name }}</div>
+	</div>
+
+	<div class="row" style="margin-bottom: 5px;">
+		<div class="span2 offset1" style="text-align: right;">
+			<strong>Description: </strong>
+		</div>
+		<div class="span9">{{ event.desc }}</div>
+	</div>
+
+	<div class="row" style="margin-bottom: 5px;">
+		<div class="span2 offset1" style="text-align: right;">
+			<strong>Start Time: </strong>
+		</div>
+		<div class="span9">{{ event.start_time }}</div>
+	</div>
+
+	<div class="row" style="margin-bottom: 5px;">
+		<div class="span2 offset1" style="text-align: right;">
+			<strong>End Time: </strong>
+		</div>
+		<div class="span9">{{ event.end_time }}</div>
+	</div>
+
+	<div class="row" style="margin-bottom: 5px;">
+		<div class="span2 offset1" style="text-align: right;">
+			<strong>Location: </strong>
+		</div>
+		<div class="span9">{{ event.location }}</div>
+	</div>
+
+	<div class="row" style="margin-bottom: 5px;">
+		<div class="span2 offset1" style="text-align: right;">
+			<strong>Is Active: </strong>
+		</div>
+		<div class="span9">{% if event.status == 1 %} Yes {% else %} No
+			{% endif %}</div>
+	</div>
+
+	<div class="row" style="margin-bottom: 5px;">
+		<div class="span2 offset1" style="text-align: right;">
+			<strong># Participants: </strong>
+		</div>
+		<div class="span9">{{ activities|length }}</div>
+	</div>
+
+	{% if activities|length > 0 %}
+	<div class="row" style="margin-bottom: 5px;">
+		<div class="span2 offset1" style="text-align: right;">
+			<strong>Participants: </strong>
+		</div>
+		<div id="id_users" class="span9">
+			{% for activity in activities %}
+				<a href="{% url 'profiles_view_profile' activity.user.id %}">
+					{{ activity.user }}
+				</a>&nbsp;
+			{% endfor %}
+		</div>
+	</div>
+	<!-- <div class="row" style="margin-bottom: 5px;">
+		<div class="span2 offset1" style="text-align: right;">
+			<strong>Participants: </strong>
+		</div>
+		<div class="span9 btn-group">
+			<button class="btn dropdown-toggle" data-toggle="dropdown">
+				View User Profile <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				{% for activity in activities %}
+				<li><a
+					href="{% url 'profiles_view_profile' activity.user.id %}">
+						{{activity.user }} </a></li> {% endfor %}
+			</ul>
+		</div>
+	</div>-->
+	{% endif %} 
+	
+	{% if user == event.creator %}
+	<div class="row" style="margin-top: 35px;">
+		<div class="span2 offset4" style="text-align: right;">
+			<a href="../../edit/{{ event.eid }}">
+				<button id="editBtn" class="btn btn-primary btn-large">Edit</button>
+			</a>
+		</div>
+	</div>
+	{% endif %} 
+	<input type="hidden" id="id_eid" name="eid" value="{{ event.eid }}" />
+</div>
+
+{% endblock %}

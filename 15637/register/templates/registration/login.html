@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="page-header">
+	<h1>
+		Account <small>Login</small>
+	</h1>
+</div>
+<form action="" method="post" id="login-form" class="form-horizontal">
+	{% csrf_token %} {% if form.errors.items %}
+	<div class="alert alert-error">
+		{% for key, value in form.errors.items %} <a class="close"
+			data-dismiss="alert">x</a> {{ value }} {% endfor %}
+	</div>
+	{% endif %}
+	<div class="control-group">
+		<label class="control-label" for="id_username">Username:</label>
+		<div class="controls">{{ form.username }}</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="id_password">Password:</label>
+		<div class="controls">{{ form.password }}</div>
+	</div>
+	<div class="form-actions">
+		<button type="submit" class="btn btn-primary btn-large">Sign in</button>
+		<button type="reset" class="btn">Reset</button>
+	</div>
+</form>
+{% endblock %}

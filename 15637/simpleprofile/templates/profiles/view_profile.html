@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% load i18n %} {% block content %}
+<div class="page-header">
+	<h1>
+	{% if user == profile.user %}
+	My Profile
+	{% else %}
+	Profile
+	{% endif %}
+	<small>View</small>
+	</h1>
+</div>
+
+<div class="row" style="font-size: 18px;">
+	<div class="span2 offset2">
+		{% if profile.avatar %}
+			<img id="id_avatar" name="avatar" src="{{ profile.avatar.url }}" />
+		{% else %}
+			<img id="id_avatar" name="avatar" src="{{ MEDIA_URL }}images/default_thumbnail.jpeg" />
+		{% endif %} 
+	</div>
+
+	<div class="span8">
+		<div class="row" style="margin-bottom: 5px;">
+			<div class="span2" style="text-align: right;">
+				<strong>Username: </strong>
+			</div>
+			<div class="span6">{{ profile.user.username }}</div>
+		</div>
+
+		<div class="row" style="margin-bottom: 5px;">
+			<div class="span2" style="text-align: right;">
+				<strong>First name: </strong>
+			</div>
+			<div class="span6">{{ profile.first_name }}</div>
+		</div>
+
+		<div class="row" style="margin-bottom: 5px;">
+			<div class="span2" style="text-align: right;">
+				<strong>Last name: </strong>
+			</div>
+			<div class="span6">{{ profile.last_name }}</div>
+		</div>
+
+		<div class="row" style="margin-bottom: 5px;">
+			<div class="span2" style="text-align: right;">
+				<strong>Description: </strong>
+			</div>
+			<div class="span6">{{ profile.self_desc }}</div>
+		</div>
+
+		<div class="row" style="margin-bottom: 5px;">
+			<div class="span2" style="text-align: right;">
+				<strong>Address: </strong>
+			</div>
+			<div class="span6">{{ profile.home_addr }}</div>
+		</div>
+        
+	{% if user == profile.user %}
+		<div class="row" style="margin-top: 35px;">
+			<div class="span1 offset1" style="text-align: right;">
+				<a href="{% url 'profiles_edit_profile' %}"><button
+						class="btn btn-primary btn-large">Edit</button></a>
+			</div>
+		</div>
+	{% endif %}
+	</div>
+	<input type="hidden" id="id_eid" name="eid" value="{{ event.eid }}" />
+</div>
+
+{% endblock %}

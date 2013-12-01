@@ -1,0 +1,65 @@
+################################################################################
+# README                                                                       #
+#                                                                              #
+# Description: This file serves as a README and documentation for CP1          #
+#              concurrent echo server.                                         #
+#                                                                              #
+# Author: Yang Sun <yksun@cs.cmu.edu>                                          #
+#                                                                              #
+################################################################################
+
+
+
+
+[TOC-1] Table of Contents
+--------------------------------------------------------------------------------
+
+        [TOC-1] Table of Contents
+        [DES-2] Description of Files
+        [RUN-3] How to Run
+
+
+
+
+[DES-2] Description of Files
+--------------------------------------------------------------------------------
+
+Here is a listing of all files associated with Recitation 1 and what their'
+purpose is:
+
+                    .../README                  - Current document 
+                    .../src/lisod.c      - Simple concurrent echo network server
+                    .../src/Makefile            - Contains rules for make
+
+
+
+
+[RUN-3] How to Run
+--------------------------------------------------------------------------------
+
+Building and executing the echo code should be very simple:
+
+                    make
+                    ./lisod <HTTP_port>
+
+You need to specify the HTTP port that the client should connect to. Once the server
+starts, it runs and waits for client connection. It will simply receive the bytes sent
+from the client and echo them back.
+
+In addition, a telnet client may also be used in a similar fashion for
+communicating with the server:
+
+                    make
+                    ./lisod <HTTP_port>
+                    telnet localhost <HTTP_port>
+
+The test Python script takes a series of arguments and can be run as:
+
+                    make
+                    ./echo_server
+                    python cp1_checker localhost <HTTP_port> 1000 10 2048 500
+
+with arguments as such:
+
+                    <ip> <port> <# trials> <# writes and reads per trial> \
+                    <max # bytes to write at a time> <# connections> 

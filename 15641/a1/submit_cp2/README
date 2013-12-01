@@ -1,0 +1,65 @@
+################################################################################
+# README                                                                       #
+#                                                                              #
+# Description: This file serves as a README and documentation for CP2          #
+#              concurrent lisod server.                                        #
+#                                                                              #
+# Author: Yang Sun <yksun@cs.cmu.edu>                                          #
+#                                                                              #
+################################################################################
+
+
+
+
+[TOC-1] Table of Contents
+--------------------------------------------------------------------------------
+
+        [TOC-1] Table of Contents
+        [DES-2] Description of Files
+        [RUN-3] How to Run
+
+
+
+
+[DES-2] Description of Files
+--------------------------------------------------------------------------------
+
+Here is a listing of all files associated with Recitation 1 and what their'
+purpose is:
+
+                    .../README                  - Current document 
+                    .../src/lisod.c      - lisod server that can hold static website
+                    .../src/lisodlib.c	- library for lisod server
+                    .../src/lisodlib.h	- header file for the library
+                    .../src/lisodlog.c	- log engine of the lisod server
+                    .../src/lisodlog.h	- header file for the log engine
+                    .../src/errno.h		- error number for all files use
+                    .../src/Makefile            - Contains rules for make
+
+
+
+
+[RUN-3] How to Run
+--------------------------------------------------------------------------------
+
+Building and executing the echo code should be very simple:
+
+                    make
+                    ./lisod <HTTP_port> <log file> <www folder>
+
+You need to specify the HTTP port that the client should connect to. Additionally, you
+need to specify the path of the log file that the lisod server will dump to. Finally, 
+designate the folder that the lisod server need to hold. Once the server starts, it 
+runs and waits for client connection. Any valid requests will result in a response back
+to the corresponding client.
+
+In addition, a telnet client may also be used in a similar fashion for
+communicating with the server:
+
+                    make
+                    ./lisod <HTTP_port> <log file> <www folder>
+                    telnet localhost <HTTP_port>
+                    THEN YOU CAN SEND ANY VALID REQUEST TO THE SERVER
+                    
+                    
+For more implementation details, please refer to the inline comments in the source files.

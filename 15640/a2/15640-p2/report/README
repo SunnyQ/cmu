@@ -1,0 +1,8 @@
+Team Member:
+Yang Sun<yksun@andrew.cmu.edu>
+Yuan Gu<yuangu@andrew.cmu.edu>
+
+To run the project, go to src directory and run "make demo".
+By default, the registry server listens on port 4000 and proxy dispatcher listens 
+on port 4001. Please change the port in Makefile and test script correspondingly 
+if necessary. 

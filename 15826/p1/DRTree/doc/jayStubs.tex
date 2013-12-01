@@ -1,0 +1,53 @@
+
+The followings are the most used functions in the DRtree package:
+\begin{itemize}
+	\item
+	{\bf void DR\_Init(void)}:\\
+	This function initializes the DRtree package. It must be called before
+	any other function in the DRtree package.
+
+	\item
+	{\bf int DR\_CreateIndex(char *filename, int dim, coord\_t ctype)}:\\
+	This function creates a DR index file. The created index file will have
+	the name as {\em filename}, with dimension {\em dim} and coordinate type
+	{\em ctype} ({\tt int} or {\tt float}).
+	It returns 0 when everything is OK or a negative error number otherwise.
+
+	\item
+	{\bf int DR\_DestroyIndex(char *filename)}:\\
+	This function deletes a DR index file with the name as {\em filename}.
+	It returns 0 when everything is OK or a negative error number otherwise.
+
+	\item
+	{\bf int DR\_OpenIndex(char *filename)}:\\
+	This function opens a DR index file with the name as {\em filename}.
+	It returns an index descriptor when everything is OK or a
+	negative error number otherwise.
+
+	\item
+	{\bf int DR\_CloseIndex(int fd)}:\\
+	This function closes a DR index file with the descriptor as {\em fd}.
+	It returns 0 when everything is OK or a negative error number otherwise.
+
+	\item
+	{\bf int DR\_SearchEntry(int fd, DRrect *testrect)}:\\
+	This function searches in a DR index with the descriptor {\em fd} for
+	every record whose covering rectangle overlaps with {\em testrect}.
+	It returns the number of qualified records or an error number otherwise.
+
+	\item
+	{\bf int DR\_InsertEntry(int fd, int childno, DRrect *childcov)}:\\
+	This function inserts into a DR index with the descriptor {\em fd} a
+	record whose ID number is {\em childno} and the covering rectangle
+	is {\em childcov}.
+	It returns 0 when everything is OK or a negative error number otherwise.
+
+	\item
+	{\bf int DR\_DeleteEntry(int fd, int childno, DRrect *testrect)}:\\
+	This function deletes from a DR index with the descriptor {\em fd} a
+	record whose ID number is {\em childno} and whose covering rectangle
+	overlaps with {\em testrect}. It returns 1 if the record is deleted, 0
+	if the record is not found or a negative error number otherwise.
+
+\end{itemize}
+

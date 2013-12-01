@@ -1,0 +1,4 @@
+1. Cache function is not implemented in this program.
+2. The router table needs a few seconds to setup. (normally the cycle time)
+3. Ideally the routing daemon positive operations should be triggered just on time, but in our program,
+it is being checked once per second.

@@ -1,0 +1,6 @@
+1. Two peers: one fetch a file from the other one
+2. Two peers: one fetch a file that doesn't exist in another peer
+3. Three peers: one fetch a file from the other two (test the load balancer)
+4. Three peers: one fetch a file from one of the other two
+5. Three peers: one starts and down after receiving GET request, the requester will resend GET and broadcast the WHOHAS again
+

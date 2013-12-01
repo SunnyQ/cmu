@@ -1,0 +1,106 @@
+-- Q1-1
+DROP TABLE IF EXISTS characters;
+CREATE TABLE characters
+(
+char_id int not null,
+name char(25) not null
+);
+
+
+DROP TABLE IF EXISTS comics;
+CREATE TABLE comics
+(
+comic_id int not null,
+name char(25) not null
+);
+
+
+DROP TABLE IF EXISTS appearances;
+CREATE TABLE appearances
+(
+char_id int not null,
+comic_id int not null
+);
+
+.separator ' '
+.import marvel_characters.txt characters
+.import marvel_comic_books.txt comics
+.import marvel.txt appearances
+
+-- Q1-2
+SELECT count(distinct name) FROM characters;
+
+-- Q1-3
+SELECT count(distinct name) FROM comics;
+
+-- Q1-4
+SELECT name
+FROM characters
+WHERE char_id = (
+	SELECT char_id
+	FROM appearances
+	GROUP BY char_id
+	ORDER BY count(*) DESC
+	LIMIT 1);
+
+-- Q1-5
+SELECT name
+FROM comics
+WHERE comic_id = (
+	SELECT comic_id
+	FROM appearances
+	GROUP BY comic_id
+	ORDER BY count(*) DESC
+	LIMIT 1);
+
+-- Q1-6
+DROP VIEW IF EXISTS co_actors;
+CREATE VIEW co_actors AS
+	SELECT distinct a1.char_id id1, a2.char_id id2
+	FROM appearances a1, appearances a2
+	WHERE a1.comic_id = a2.comic_id
+	AND a1.char_id != a2.char_id;
+
+-- Q1-7
+SELECT name, count(*)
+FROM co_actors
+LEFT JOIN characters
+ON id1 = char_id
+GROUP BY id1
+ORDER BY count(*) DESC
+LIMIT 3;
+
+-- Q1-9
+EXPLAIN SELECT name, count(*)
+FROM co_actors
+LEFT JOIN characters
+ON id1 = char_id
+GROUP BY id1
+ORDER BY count(*) DESC
+LIMIT 3;
+
+-- Q1-8
+DROP INDEX IF EXISTS a_char;
+CREATE INDEX a_char ON appearances(char_id);
+DROP INDEX IF EXISTS a_comic;
+CREATE INDEX a_comic ON appearances(comic_id);
+DROP INDEX IF EXISTS char_index;
+CREATE INDEX char_index ON characters(char_id);
+
+SELECT name, count(*)
+FROM co_actors
+LEFT JOIN characters
+ON id1 = char_id
+GROUP BY id1
+ORDER BY count(*) DESC
+LIMIT 3;
+
+-- Q1-9
+EXPLAIN SELECT name, count(*)
+FROM co_actors
+LEFT JOIN characters
+ON id1 = char_id
+GROUP BY id1
+ORDER BY count(*) DESC
+LIMIT 3;
+

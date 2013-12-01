@@ -1,0 +1,7 @@
+We test this program on three different andrew machines.
+1. Fetch the object on different node. (Object saved locally or on another node)
+2. Add file and then fetch it on on another node.
+3. Close one routing daemon, and fetch the objects on it again.
+4. Restart the previously closed routing daemon and test above operations.
+4. Fetch things with longest prefix function. 
+

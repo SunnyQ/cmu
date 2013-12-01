@@ -1,0 +1,32 @@
+Author: Christos Faloutsos
+Date: Feb. 2001; updated Sept. 2011
+
+WHAT:
+Implements a kd-tree,
+with insertions, nearest neighbor search,
+and range searches 
+The coordinates are doubles.
+(Improved version from the one from Maryland -
+fixed a small bug with hardwired 4-dimensions)
+
+USAGE:
+   main [-d <#dimensions>]
+and then follow the prompts.
+* The default # of dimensions is 4.
+* For range queries, the program will prompt for the low- and high- values
+  for each coordinate, but then it will do nothing.
+
+DEMO:
+   make demo
+to see a demo. Ignore the "Error code 3 (ignored)" message.
+
+
+IMPORTANT:
+   do not feed numbers greater than 'HUGE' (see 'dfn.h')
+
+KNOWN ISSUE:
+   it gives unpredictable results, if it is given a string,
+   when it expects a number.
+
+UPDATE LOG:
+   - compiles under mac-osx (10.6), after replacing 'malloc.h' with 'stdlib.h'

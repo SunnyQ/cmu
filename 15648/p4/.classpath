@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/hadoop-0.20.1-core.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://hadoop.apache.org/docs/r0.20.1/api/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/zookeeper-3.3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/accumulo-core-1.4.1.jar" sourcepath="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/accumulo-core-1.4.1-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://accumulo.apache.org/1.4/apidocs/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/accumulo-server-1.4.1.jar" sourcepath="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/accumulo-server-1.4.1-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://accumulo.apache.org/1.4/apidocs/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/accumulo-start-1.4.1.jar" sourcepath="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/accumulo-start-1.4.1-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://accumulo.apache.org/1.4/apidocs/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/cloudtrace-1.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/commons-collections-3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/commons-configuration-1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/commons-io-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/commons-jci-core-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/commons-jci-fam-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/commons-logging-api-1.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/examples-simple-1.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/jline-0.9.94.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/libthrift-0.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/wikisearch-ingest-1.4.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_35/lib/accumulo/wikisearch-query-1.4.1-javadoc.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

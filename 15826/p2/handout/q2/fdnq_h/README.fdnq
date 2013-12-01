@@ -1,0 +1,46 @@
+PURPOSE
+   computes the q- fractal dimension,
+   for arbitrary (n-d) input dataset
+
+USAGE
+   	make
+   for a demo, or
+   	fdnq.pl -q2 diagonal.inp
+   to compute the correlation (q=2) fractal dimension for a set of points
+   along a line. The default is q=0 (Hausdorff). Also
+   	fdnq.pl -v square5k.inp
+   is the verbose version, that also calls 'xgraph' to make a plot
+
+==== addendum: -h (= histogram) flag, christos Aug 2008) ==========
+PURPOSE
+    computes the fd of a set of disk accesses (timestamp, value),
+    or any other multi-dimensional histogram
+    Last column is treated as 'value', with the -h flag
+
+USAGE
+        make demoHist
+    or
+   	fdnq.pl -h -q2 diagonal_HISTOGRAM.inp # should give slope 1
+   	fdnq.pl -h -q2 mf_N1k_b08_k10_HISTOGRAM.inp # should give slope 0.55
+
+DETAILS:
+    the mf_N1k_b08_k10.inp  dataset is the timestamps of N=1K customers,
+        with bias factor $b$=0.8 and
+	2**k = 1024 total duration of experiment (1024 possible integer timestamps)
+    the mf_N1k_b08_k10_HISTOGRAM.inp  dataset is the histogram of the above:
+        (timestamp, #customers_arrived)
+    The slope should be $s = log_2[ b*b + (1-b)*(1-b) ]$
+
+============= For developers only ============================
+FUTURE IMPROVEMENTS: (christos, Aug. 4, 1999)
+- works fine for q=0, q=2
+  any $q$ is OK, with just needing to divide the slope by (q-1)
+- fitting: bob's piecewise linear fitting might be good
+- test more thoroughly (square5K.inp gives 1.8 fd!)
+  could be a bad rng - but check anyway.
+
+FYI:
+- cat.pl prints all the data files in numeric format (as opposed
+  to scientific format)
+  (to cleanup potential problems with the 'blood' input)
+
